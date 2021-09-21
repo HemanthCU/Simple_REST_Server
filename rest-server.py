@@ -50,7 +50,8 @@ def test():
             'width' : img.size[0],
             'height' : img.size[1]
             }
-    except:
+    except Exception as exp:
+        print(f"Exception", exp)
         response = { 'width' : 0, 'height' : 0}
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
