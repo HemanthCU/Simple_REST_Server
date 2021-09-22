@@ -3,7 +3,7 @@
 ## Dependencies
 
 ```
-pip3 install pillow json pickle
+pip3 install pillow jsonpickle
 ```
 
 ## Overview
