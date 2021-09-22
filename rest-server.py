@@ -15,6 +15,7 @@ log.setLevel(logging.DEBUG)
 def add(a,b):
     response = {'sum' : str( a + b)}
     response_pickled = jsonpickle.encode(response)
+    print(f"Send response {response_pickled}")
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
 @app.route('/api/sub', methods=['POST'])
@@ -37,7 +38,7 @@ def sub():
 
 # route http posts to this method
 @app.route('/api/image', methods=['POST'])
-def test():
+def image():
     r = request
     # convert the data to a PIL image type so we can extract dimensions
     if app.debug:
@@ -52,7 +53,7 @@ def test():
             }
     except Exception as exp:
         print(f"Exception", exp)
-        response = { 'width' : 0, 'height' : 0}
+        response = { 'width' : 0, 'height' : 0, 'error' : True}
     # encode response using jsonpickle
     response_pickled = jsonpickle.encode(response)
 
